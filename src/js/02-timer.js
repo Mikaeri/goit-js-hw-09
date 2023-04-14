@@ -71,6 +71,7 @@ function onStart(){
            numberOfSeconds.textContent ==='00'){
         countBtnStart.removeAttribute('disabled');
         datePicker.removeAttribute('disabled');
+        Notify.success('COOL!!!');
         clearInterval(intervalId);
            }
     },1000); 
