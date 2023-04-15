@@ -53,11 +53,17 @@ function convertMs(ms) {
   }
   
 function onStart(){
+  countBtnStart.setAttribute('disabled', '');
+  datePicker.setAttribute('disabled', '');
     intervalId = setInterval (()=>{
         currentTime = new Date;
         toSubTime = chosenTime - currentTime;
-        countBtnStart.setAttribute('disabled', '');
-        datePicker.setAttribute('disabled', '');
+        if(toSubTime<0){
+          clearInterval(intervalId);
+          datePicker.removeAttribute('disabled');
+          Notify.success('COOL!!!');
+          }
+
 
         const { days, hours, minutes, seconds } = convertMs(toSubTime);
         numberOfDays.textContent = pad(days);
@@ -65,11 +71,7 @@ function onStart(){
         numberOfMinutes.textContent = pad(minutes);
         numberOfSeconds.textContent = pad(seconds);
         
-        if(toSubTime<=0){
-        datePicker.removeAttribute('disabled');
-        Notify.success('COOL!!!');
-        clearInterval(intervalId);
-           }
+
     },1000); 
 }
 
