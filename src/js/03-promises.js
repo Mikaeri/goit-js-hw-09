@@ -9,10 +9,10 @@ form.addEventListener("submit", onHandleSubmit);
 
 function onHandleSubmit(event) {
   event.preventDefault();
-let delay = Number(inputElDelay.value);
-let step = Number(inputElStep.value);
-let amount = Number(inputElAmount.value);
-let position = 0;
+  let delay = Number(inputElDelay.value);
+  let step = Number(inputElStep.value);
+  let amount = Number(inputElAmount.value);
+  let position = 0;
 
   if (delay === "" || step === "" || amount === "") {
     return Notify.info("Please fill in all the fields!");
@@ -21,13 +21,13 @@ let position = 0;
   for (let i=1; i<=amount; i+=1){
     position = i;
     createPromise(position, delay)
-  .then(({ position, delay }) => {
+    .then(({ position, delay }) => {
     Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
-  })
-  .catch(({ position, delay }) => {
-    Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
-  });
-  delay+=step;
+   })
+   .catch(({ position, delay }) => {
+      Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
+    });
+    delay+=step;
   }
   event.currentTarget.reset();
 }
@@ -41,7 +41,7 @@ function createPromise(position, delay) {
         resolve({ position, delay });
       }
 
-      reject({ position, delay });
+        reject({ position, delay });
     }, delay);
   });
 }
