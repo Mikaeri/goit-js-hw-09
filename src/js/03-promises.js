@@ -5,7 +5,6 @@ const inputElDelay = document.querySelector('[name="delay"]');
 const inputElStep = document.querySelector('[name="step"]');
 const inputElAmount = document.querySelector('[name="amount"]');
 
-
 form.addEventListener("submit", onHandleSubmit);
 
 function onHandleSubmit(event) {
@@ -32,9 +31,6 @@ let position = 0;
   }
   event.currentTarget.reset();
 }
-
-
-
 
 function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
