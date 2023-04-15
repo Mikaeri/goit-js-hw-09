@@ -10,12 +10,14 @@ if(!isClicked){
         docBody.style.backgroundColor = getRandomHexColor();
         }, 1000);
     isClicked = true;
+    startBtn.setAttribute('disabled', '');
 }});
 
 stopBtn.addEventListener('click', () =>{
     clearInterval(intervalId);
     isClicked = false;
     docBody.style.backgroundColor = `#fafafa`;
+    startBtn.removeAttribute('disabled');
 });
 
 function getRandomHexColor() {

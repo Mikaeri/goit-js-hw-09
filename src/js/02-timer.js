@@ -60,16 +60,12 @@ function onStart(){
         datePicker.setAttribute('disabled', '');
 
         const { days, hours, minutes, seconds } = convertMs(toSubTime);
-        numberOfDays.textContent = days;
+        numberOfDays.textContent = pad(days);
         numberOfHours.textContent = pad(hours);
         numberOfMinutes.textContent = pad(minutes);
         numberOfSeconds.textContent = pad(seconds);
         
-        if(numberOfDays.textContent === '0' &&
-           numberOfHours.textContent === '00' &&
-           numberOfMinutes.textContent === '00'&&
-           numberOfSeconds.textContent ==='00'){
-        countBtnStart.removeAttribute('disabled');
+        if(toSubTime<=0){
         datePicker.removeAttribute('disabled');
         Notify.success('COOL!!!');
         clearInterval(intervalId);
