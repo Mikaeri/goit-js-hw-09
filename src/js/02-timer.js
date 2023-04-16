@@ -64,7 +64,6 @@ function onStart(){
           Notify.success('COOL!!!');
           }
 
-
         const { days, hours, minutes, seconds } = convertMs(toSubTime);
         numberOfDays.textContent = pad(days);
         numberOfHours.textContent = pad(hours);
